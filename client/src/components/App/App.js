@@ -1,11 +1,28 @@
 import React from 'react';
-import './App.css';
+
+// IMPORT STYLED COMPONENTS
+import { StyledApp, StyledContainer, StyledWrapper, StyledHome } from './App.styled';
+
+// IMPORT ROUTER
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+// IMPORT COMPONENTS
+import Header from '../Header/Header';
 
 const App = () => {
   return (
-    <div className="App">
-      App
-    </div>
+    <Router>
+      <StyledApp>
+        <Header />
+        <StyledContainer>
+          <StyledWrapper>
+            <StyledHome>
+              App
+            </StyledHome>
+          </StyledWrapper>
+        </StyledContainer>
+      </StyledApp>
+    </Router>
   );
 }
 
