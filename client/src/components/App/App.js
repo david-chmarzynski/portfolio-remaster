@@ -7,22 +7,24 @@ import { StyledApp, StyledContainer, StyledWrapper, StyledHome } from './App.sty
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // IMPORT COMPONENTS
-import Header from '../Header/Header';
+import Header from '../../containers/Header';
 import Home from '../Home/Home';
+import Contact from '../Contact/Contact';
 
-const App = () => {
+const App = ({ initial, clicked, menuName }) => {
+  let state = {initial, clicked, menuName};
   return (
     <Router>
       <StyledApp>
         <Header />
+        <Home state={state} />
         <StyledContainer>
           <StyledWrapper>
             <StyledHome>
               <Switch>
-                <Route exact path="/" component={Home} />
                 {/* <Route exact path="/roadmap" component={Roadmap} /> */}
                 {/* <Route exact path="/technos" component={Technos} /> */}
-                {/* <Route exact path="/contact" component={Contact} /> */}
+                <Route exact path="/contact" component={Contact} />
               </Switch>
             </StyledHome>
           </StyledWrapper>

@@ -16,40 +16,40 @@ import {
 // IMPORT MUI COMPONENTS
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
-const Header = ({ history }) => {
-  // HOME STATE
-  const [state, setState] = useState({
-    initial: false,
-    clicked: null,
-    menuName: "Home"
-  });
-
+const Header = ({ history, initial, clicked, menuName, handleSetState }) => {
   // RETURN BUTTON STATE
   const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
-    history.listen(() => {
-      setState({ initial: true, clicked: false, menuName: "Home"});
+    history.listen((location) => {
+      if(location.pathname !== "/") {
+        handleSetState({ initial: false, clicked: true, menuName: "Close"});
+      }
     });
-  }, [history]);
+  }, [history, handleSetState]);
 
   // TOGGLE HOME
   const handleHome = () => {
     disableHome();
-    if(state.initial === false) {
-      setState({
-        initial: null,
+    // CASE HOME IS OPEN & NOT CLICKED (== HOMEPAGE)
+    if(clicked === null && initial === true) {
+      handleSetState({
+        initial: false,
         clicked: true,
         menuName: "Close"
       });
-    } else if(state.clicked === true) {
-      setState({
-        clicked: !state.clicked,
+    // CASE HOME IS CLOSED & CLICKED
+    } else if(clicked === true && initial === false) {
+      handleSetState({
+        initial: true,
+        clicked: true,
         menuName: "Home"
       });
-    } else if(state.clicked === false) {
-      setState({
-        clicked: !state.clicked,
+    // CASE ALREADY CLICKED & HOME IS CLOSED
+    } else if(clicked === true && initial === true) {
+      handleSetState({
+        initial: false,
+        clicked: true,
         menuName: "Close"
       });
     }
@@ -71,10 +71,12 @@ const Header = ({ history }) => {
               DAVID CHMARZYNSKI
             </StyledLogo>
             <StyledMenu>
-              {!state.clicked && (
-                <Link to='/' disabled={disabled} onClick={handleHome}>
+              {!initial && (
+                <button disabled={disabled} onClick={handleHome}>
+                <Link to='/'>
                   <ArrowBackIosIcon />
                 </Link>
+                </button>
               )}
             </StyledMenu>
           </StyledInnerHeader>

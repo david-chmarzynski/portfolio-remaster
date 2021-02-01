@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 // IMPORT COMPONENT
-import Header from '../components/Header/Header';
+import App from '../components/App/App';
 
 // IMPORT ACTIONS
 import { setState } from '../store/reducers/Header';
@@ -12,15 +12,13 @@ const mapStateToProps = (state) => ({
   menuName: state.Header.menuName
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  handleSetState: (initial, clicked, menuName) => {
-    dispatch(setState(initial, clicked, menuName));
-  },
-});
+const mapDispatchToProps = (dispatch) => ({});
 
-const HeaderContainer = connect(
+
+// CONNECT
+const AppContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Header);
+)(App);
 
-export default HeaderContainer;
+export default AppContainer;

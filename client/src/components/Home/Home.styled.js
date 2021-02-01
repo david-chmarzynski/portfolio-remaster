@@ -74,6 +74,9 @@ export const StyledContainer = styled.div`
 
 export const StyledWrapper = styled.div`
   position: relative;
+  width: 80%;
+  height: 100%;
+  margin: auto;
 `;
 
 export const StyledMenuLinks = styled.div`
