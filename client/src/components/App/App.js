@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // IMPORT COMPONENTS
 import Header from '../Header/Header';
+import Home from '../Home/Home';
 
 const App = () => {
   return (
@@ -17,7 +18,12 @@ const App = () => {
         <StyledContainer>
           <StyledWrapper>
             <StyledHome>
-              App
+              <Switch>
+                <Route exact path="/" component={Home} />
+                {/* <Route exact path="/roadmap" component={Roadmap} /> */}
+                {/* <Route exact path="/technos" component={Technos} /> */}
+                {/* <Route exact path="/contact" component={Contact} /> */}
+              </Switch>
             </StyledHome>
           </StyledWrapper>
         </StyledContainer>
