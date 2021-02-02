@@ -24,6 +24,8 @@ const Header = ({ history, initial, clicked, menuName, handleSetState }) => {
     history.listen((location) => {
       if(location.pathname !== "/") {
         handleSetState({ initial: false, clicked: true, menuName: "Close"});
+      } else if(location.pathname === "/") {
+        handleSetState({ initial: true, clicked: true, menuName: "Home"});
       }
     });
   }, [history, handleSetState]);
