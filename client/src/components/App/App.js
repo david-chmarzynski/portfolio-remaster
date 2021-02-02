@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from '../../containers/Header';
 import Home from '../Home/Home';
 import Contact from '../Contact/Contact';
+import Roadmap from '../Roadmap/Roadmap';
 
 const App = ({ initial, clicked, menuName }) => {
   let state = {initial, clicked, menuName};
@@ -22,7 +23,7 @@ const App = ({ initial, clicked, menuName }) => {
           <StyledWrapper>
             <StyledHome>
               <Switch>
-                {/* <Route exact path="/roadmap" component={Roadmap} /> */}
+                <Route exact path="/roadmap" component={Roadmap} />
                 {/* <Route exact path="/technos" component={Technos} /> */}
                 <Route exact path="/contact" component={Contact} />
               </Switch>
