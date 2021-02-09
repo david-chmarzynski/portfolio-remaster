@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 
-export const handleInfo = (city, target) => {
+export const handleInfo = (city, target, info, line1, line2, line3, ldInfo, name, messengerInfo) => {
   gsap.to(target, {
     duration: 0,
     background: `url(${city}) center center`
@@ -12,22 +12,78 @@ export const handleInfo = (city, target) => {
   });
   gsap.from(target, {
     duration: 0.4,
-    // skewY: 2,
     transformOrigin: "right top"
   });
+  gsap.to(info, {
+    duration: 0,
+    display: "none",
+    opacity: 0
+  });
+  gsap.to(line1, {
+    duration: .4,
+    opacity: 0
+  });
+  gsap.to(line2, {
+    duration: .4,
+    opacity: 0
+  });
+  gsap.to(line3, {
+    duration: .4,
+    opacity: 0
+  });
+  if (name === "Local Drive") {
+    gsap.to(ldInfo, {
+      duration: .5,
+      display: "block",
+      opacity: 1
+    });
+  } 
+  if (name === "Chatroom") {
+    gsap.to(messengerInfo, {
+      duration: .5,
+      display: "block",
+      opacity: 1
+    });
+  }
 };
 
 // Removes the city image once you hover off
-export const handleInfoReturn = target => {
-  gsap.to(target, {
-    duration: 0,
-    skewY: 0
-  });
+export const handleInfoReturn = (target, info, line1, line2, line3, ldInfo, name, messengerInfo) => {
   gsap.to(target, {
     duration: 0.4,
     opacity: 0,
-    skewY: 0
   });
+  gsap.to(info, {
+    duration: 0.4,
+    display: "block",
+    opacity: 1
+  });
+  gsap.to(line1, {
+    duration: .4,
+    opacity: 1
+  });
+  gsap.to(line2, {
+    duration: .4,
+    opacity: 1
+  });
+  gsap.to(line3, {
+    duration: .4,
+    opacity: 1
+  });
+  if (name === "Local Drive") {
+    gsap.to(ldInfo, {
+      duration: 0,
+      display: "none",
+      opacity: 0
+    });
+  } 
+  if (name === "Chatroom") {
+    gsap.to(messengerInfo, {
+      duration: 0,
+      display: "none",
+      opacity: 0
+    });
+  }
 };
 
 
@@ -86,7 +142,7 @@ export const handleHover = e => {
     duration: 0.3,
     y: 3,
     skewX: 4,
-    ease: "power1.inOut"
+    ease: "power3.inOut"
   });
 };
 
@@ -96,6 +152,6 @@ export const handleHoverExit = e => {
     duration: 0.3,
     y: -3,
     skewX: 0,
-    ease: "power1.inOut"
+    ease: "power3.inOut"
   });
 };

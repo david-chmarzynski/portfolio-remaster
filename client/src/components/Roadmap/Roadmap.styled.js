@@ -3,12 +3,13 @@ import { blackColor, greenColor } from '../../colors';
 
 export const Container = styled.div`
   width: 100%;
-  height: 233vh;
+  height: 320vh;
   display: flex;
   justify-content: center;
 
   p {
-    margin-top: 50%;
+    margin-top: 10rem;
+    font-size: 1.2rem;
   }
 `;
 
@@ -19,37 +20,65 @@ export const Tracer = styled.div`
   border: 5px solid ${blackColor};
   background-color: white;
   position: fixed;
-  margin-top: 50%;
+  margin-top: 50vh;
   /* transform: translate(-50%, -50%); */
 `;
 
 export const Line = styled.div`
-  margin-top: 50%;
+  margin-top: 50vh;
   width: 5px;
-  height: 140vh;
+  height: 220vh;
   position: absolute;
   background-color: ${greenColor};
   /* transform: translate(-50%, -50%); */
 `;
 
-export const Fundamentals = styled.div`
-  width: 200px;
-  height: 50px;
-  background-color: white;
-  position: absolute;
-  /* transform: translate(-50%, -50%); */
-  top: 60vh;
+export const Legend = styled.div`
+  width: 120px;
+  height: 90px;
+  position: fixed;
+  left: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-top: 25%;
+  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.3);
 
-  span {
-    padding: 5px;
-    color: ${blackColor};
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 `;
 
-export const Advanced = styled.div`
+export const Round1 = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: ${greenColor};
+  margin-right: .5rem;
+`;
+
+export const Round2 = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: orange;
+  margin-right: .5rem;
+`;
+
+export const Round3 = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: grey;
+  margin-right: .5rem;
+`;
+
+
+
+export const Fundamentals = styled.div`
   width: 200px;
   height: 50px;
   background-color: white;
@@ -66,13 +95,30 @@ export const Advanced = styled.div`
   }
 `;
 
+export const Advanced = styled.div`
+  width: 200px;
+  height: 50px;
+  background-color: white;
+  position: absolute;
+  /* transform: translate(-50%, -50%); */
+  top: 160vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    padding: 5px;
+    color: ${blackColor};
+  }
+`;
+
 export const Ecosystem = styled.div`
   width: 200px;
   height: 50px;
   background-color: white;
   position: absolute;
   /* transform: translate(-50%, -50%); */
-  top: 140vh;
+  top: 210vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,4 +139,26 @@ export const Data = styled.div`
   justify-content: center;
   align-items: center;
   font-weight: 600;
+  border: 2px solid black;
+`;
+
+export const FundamentalsContainer = styled.div`
+  height: 600px;
+  margin-top: 80vh;
+  opacity: 0;
+  position: absolute;
+`;
+
+export const AdvancedContainer = styled.div`
+  height: 600px;
+  margin-top: 150vh;
+  position: absolute;
+  opacity: 0;
+`;
+
+export const EcosystemContainer = styled.div`
+  height: 600px;
+  margin-top: 200vh;
+  position: absolute;
+  opacity: 0;
 `;

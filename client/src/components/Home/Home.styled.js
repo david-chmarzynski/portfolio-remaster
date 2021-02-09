@@ -143,18 +143,20 @@ export const StyledProject = styled.div`
   font-size: 0.8rem;
   font-weight: 600;
 
-  span {
+  a {
     cursor: pointer;
     font-weight: 400;
     margin: 0 32px;
     transition: 0.3s ease-in-out;
+    color: white;
+    text-decoration: none;
   }
 
-  span:first-child {
+  a:first-child {
     margin-left: 64px;
   }
 
-  span:hover {
+  a:hover {
     color: #fff;
     background: ${greenColor};
     padding: 8px 24px;
@@ -181,5 +183,41 @@ export const StyledSocials = styled.div`
     width: 37px;
     height: 37px;
     margin-right: 1rem;
+  }
+`;
+
+export const LocalDriveInfo = styled.div`
+  color: #fff;
+  width: 300px;
+  display: none;
+  opacity: 0;
+  
+  h3 {
+    font-size: 1.2rem;
+    margin: 8px auto;
+  }
+
+  p {
+    margin: 0 auto;
+    font-size: 0.8rem;
+  }
+`;
+
+export const ChatroomInfo = styled.div`
+  color: ${blackColor};
+  width: 300px;
+  display: none;
+  opacity: 0;
+  
+  h3 {
+    color: ${blackColor};
+    font-size: 1.2rem;
+    margin: 8px auto;
+  }
+
+  p {
+    color: ${blackColor};
+    margin: 0 auto;
+    font-size: 0.8rem;
   }
 `;

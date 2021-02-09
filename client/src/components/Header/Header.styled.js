@@ -6,6 +6,7 @@ export const StyledHeader = styled.header`
   width: 100%;
   display: flex;
   margin: auto;
+  position: fixed;
 `;
 
 export const StyledContainer = styled.div`

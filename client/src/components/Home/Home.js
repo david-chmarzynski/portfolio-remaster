@@ -21,7 +21,9 @@ import {
   StyledLi,
   StyledInfo,
   StyledProject,
-  StyledSocials
+  StyledSocials,
+  LocalDriveInfo,
+  ChatroomInfo
 } from './Home.styled';
 
 // IMPORT MUI COMPONENTS
@@ -31,11 +33,13 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 // IMPORT INFOS IMAGES
 import avignon from '../../images/avignon.jpg';
 import localdrive from '../../images/LD-big-size.png';
+import messenger from '../../images/messenger-theme.png';
 
 // INFOS ARRAY
 const infos = [
-  { name: "Avignon", image: avignon },
-  { name: "Local Drive", image: localdrive }
+  { name: "Avignon", image: avignon, link: "#" },
+  { name: "Local Drive", image: localdrive, link: "http://local-drive.fr/" },
+  { name: "Chatroom", image: messenger, link: "https://messenger-new.herokuapp.com/"}
 ];
 
 const Home = ({ state }) => {
@@ -48,6 +52,8 @@ const Home = ({ state }) => {
   let line1 = useRef(null);
   let line2 = useRef(null);
   let line3 = useRef(null);
+  let ldInfo = useRef(null);
+  let messengerInfo = useRef(null);
 
   // USE EFFECT
   useEffect(() => {
@@ -124,15 +130,36 @@ const Home = ({ state }) => {
                   Retrouvez mes différents projets ci-dessous.
                 </p>
               </StyledInfo>
+              <LocalDriveInfo ref={el => (ldInfo = el)}>
+                <h3>Local Drive.</h3>
+                <p>
+                  En Janvier 2020, j'ai l'idée et la volonté de créer
+                  une plateforme de "Click & Collect" à destination
+                  des producteurs et commerçants locaux. N'hésitez pas à visiter
+                  l'application.
+                </p>
+              </LocalDriveInfo>
+              <ChatroomInfo ref={el => (messengerInfo = el)}>
+                <h3>Chatroom.</h3>
+                <p>
+                  Ce "Messenger-Like" est un réel défi tant
+                  Front-End, avec l'utilisation
+                  de ReactJS et les Styled-Components, que Back-End
+                  avec l'utilisation de Socket.io pour l'échange de données
+                  en temps réel. N'hésitez pas à visiter l'application.
+                </p>
+              </ChatroomInfo>
               <StyledProject>
                 Infos:
                 {infos.map(el => (
                   <span
                     key={el.name}
-                    onMouseEnter={() => handleInfo(el.image, infoBackground)}
-                    onMouseOut={() => handleInfoReturn(infoBackground)}
+                    onMouseEnter={() => handleInfo(el.image, infoBackground, info, line1, line2, line3, ldInfo, el.name, messengerInfo)}
+                    onMouseOut={() => handleInfoReturn(infoBackground, info, line1, line2, line3, ldInfo, el.name, messengerInfo)}
                   >
-                    {el.name}
+                    <a href={el.link}>
+                      {el.name}
+                    </a>
                   </span>
                 ))}
               </StyledProject>
